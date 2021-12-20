@@ -1,0 +1,244 @@
+#include<bits/stdc++.h>
+#include<iostream>
+#include<ctime>
+#include<numeric>
+#include<tuple>
+#include<iomanip>
+#include<cstdlib>
+#include<queue>
+#include<stack>
+#include<map>
+#include<unordered_map>
+#include<cmath>
+#include<cstdio>
+#include<vector>
+#include<climits>
+#include<algorithm>
+#include<string>
+#include<sstream>
+#include<cstring>
+#include<deque>
+#include<set>
+using namespace std;
+#define pb push_back
+#define all(x) (x).begin(), (x).end()
+#define rall(x) (x).rbegin(), (x).rend()
+#define clr(cnt, x) memset((cnt), (x), sizeof(cnt))
+typedef long long ll;
+typedef unsigned long long ull;
+typedef vector<int> vi;
+typedef vector<ll> vl;
+typedef vector<pair<int,int> > vii;
+typedef pair<int, int> pii;
+typedef vector<bool> vbl;
+typedef vector<pair<ll,ll> > vll;
+typedef pair<ll, ll> pll;
+
+#define PQ priority_queue
+#define ff first
+#define ss second
+#define MP make_pair
+#define MT make_tuple
+#define mxN (int)2e5 + 2
+#define sz(n) (int)(n).size()
+#define fasterIO ios::sync_with_stdio(0); cin.tie(0);
+#define forc(cn) for(auto &x : (cn))
+#define findc(cn, abc) ((cn).find(abc) != (cn).end())
+
+//#define PI (2*acos(0))
+#define MAXN 200010
+#define torad(x) (x) * ((2*acos(0))/180.0)
+const ll INF = 1e14;
+const int mod = 1e9 + 7;
+#define eps 1e-15
+
+#define todeg(x) ((x) * ((2*acos(0))/180.0))
+#define torad(x) ((x) * (180.0/(2*acos(0))))
+//#define PI 2 * acos(0)
+
+const int md = 1e9 + 7;
+const double PI = acos(-1.0);
+
+double toDegreeFromMinutes(double minutes)
+{
+    return (minutes/60);//eyta buji naybro!!
+}
+
+double toDegree(double radian)
+{
+    if(radian<0)
+    {
+        radian += 2*PI;
+        return (radian * 180.0 / PI);
+    }
+}
+
+double toRadian(double degree)
+{
+    return (degree * PI / 180.0);
+}
+
+int comp_double(double a,double b)
+{
+    if(fabs(a-b) <= 1e-10)
+    {
+        //retrun 0;
+    }
+
+    return a < b ? -1 : 1;
+}
+
+
+ll power(ll base,ll power)
+{
+    ll result = 1;
+
+
+    while(power)
+    {
+        if(power % 2 == 1)
+        {
+            result = (result * base)%md;
+            power--;
+        }
+        else
+        {
+            base = (base * base)%md;
+            power = power / 2;
+        }
+    }
+
+    return result ;
+}
+
+//prime_checking
+
+bool is_prime(ll sum)
+{
+    for(int i=2; i<sum; i++)
+    {
+        if(sum % i == 0)
+        {
+            return true;
+        }
+    }
+    return false;
+}
+
+//binary_To_Decimal
+
+ll binaryToDecimal(ll number)
+{
+    ll num = number;//1010
+    ll dec_value = 0;//0
+    ll base = 1;//1
+
+    ll temp = num;//1010
+
+
+    while(temp)
+    {
+        ll last_digit = temp % 10;
+        temp = temp / 10;
+
+        dec_value += (last_digit * base);
+        base = base * 2;
+    }
+
+    return dec_value;
+}
+
+//SeiveOFErasHes
+void SieveOfEratosthenes(int n)
+{
+    if(n < 2)
+    {
+        cout<<"Error!"<<"\n";
+    }
+
+    bool prime_number[n + 1];//
+
+    memset(prime_number,true,sizeof(prime_number));
+
+    for (int i = 2; i * i <= n; i++)
+    {
+        if (prime_number[i] == true)
+        {
+            for (int j = i * i; j <= n; j += i)
+            {
+                prime_number[j] = false;
+            }
+        }
+    }
+
+    for (int i = 2; i <= n; i++)
+    {
+        if (prime_number[i] == true)
+        {
+            cout <<i<< " ";
+        }
+    }
+}
+
+
+/*Prime Factor :
+
+vector<int>prime_factor;
+
+for(int i = 2; i*i <= n; i++)
+{
+    while(n % i == 0)//
+    {
+        prime_factor.push_back(i);//2 3
+        n = n / i;//15 5
+    }
+}
+
+if(n > 1)
+{
+    prime_factor.push_back(n);
+}*/
+
+//Link_List
+/*
+struct Node{
+    int data;
+    struct Node* link;
+};
+
+struct Node* head;
+
+void print()
+{
+    struct Node* temp;
+    temp = head;
+
+    while(temp != NULL)
+    {
+        cout<<temp -> data<<" ";
+        temp = temp -> link;
+    }
+}
+
+
+int main()
+{
+    head = NULL;
+    head = (struct Node*)malloc(sizeof(struct Node));
+    head -> data = 20;
+    head -> link = (struct Node*)malloc(sizeof(struct Node));
+    head -> link -> data = 30;
+    head -> link -> link = NULL;
+
+    print();
+
+    return 0;
+}
+
+*/
+
+int main()
+{
+    fasterIO;
+    cout<<"H"<<"\n";
+}
